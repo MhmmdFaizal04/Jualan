@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZalPremium - Solusi App Premium Anda</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            background-color: #f9fafb;
+            color: #1f2937;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        body.dark-mode {
+            background-color: #1f2937;
+            color: #e5e7eb;
+        }
+        /* Navbar */
+        .navbar {
+            background: rgba(59, 130, 246, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .navbar .brand {
+            color: white;
+            font-size: 28px;
+            font-weight: 700;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .navbar .brand-logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            object-fit: contain;
+        }
+        .navbar .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .navbar .contact {
+            color: white;
+            font-size: 16px;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            background-color: #2563eb;
+            transition: background-color 0.3s, transform 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .navbar .contact:hover {
+            background-color: #1e40af;
+            transform: scale(1.05);
+        }
+        .navbar .dark-mode-toggle {
+            color: white;
+            font-size: 16px;
+            padding: 10px;
+            border-radius: 25px;
+            background-color: #2563eb;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .navbar .dark-mode-toggle:hover {
+            background-color: #1e40af;
+            transform: scale(1.05);
+        }
+        .navbar .hamburger {
+            display: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        /* Hero Section */
+        .hero {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            animation: fadeIn 0.8s ease-in;
+        }
+        .hero-text {
+            flex: 1;
+        }
+        .hero-text h1 {
+            font-size: 40px;
+            color: #3b82f6;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            transition: color 0.3s;
+        }
+        body.dark-mode .hero-text h1 {
+            color: #60a5fa;
+        }
+        .hero-text p {
+            font-size: 18px;
+            color: #4b5563;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            transition: color 0.3s;
+        }
+        body.dark-mode .hero-text p {
+            color: #d1d5db;
+        }
+        .hero-text .cta {
+            background: linear-gradient(90deg, #60a5fa, #3b82f6);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+        }
+        .hero-text .cta:hover {
+            background: linear-gradient(90deg, #2563eb, #1e40af);
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            animation: slideInRight 0.8s ease-out;
+        }
+        /* Features Section */
+        .features {
+            padding: 50px 20px;
+            background-color: #e5e7eb;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+        body.dark-mode .features {
+            background-color: #374151;
+        }
+        .features h2 {
+            font-size: 30px;
+            color: #3b82f6;
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            transition: color 0.3s;
+        }
+        body.dark-mode .features h2 {
+            color: #60a5fa;
+        }
+        .features h2 i {
+            font-size: 24px;
+        }
+        .features .feature-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .feature-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s;
+            animation: fadeIn 0.5s ease-in;
+            position: relative;
+            overflow: hidden;
+        }
+        body.dark-mode .feature-card {
+            background: rgba(55, 65, 81, 0.2);
+            border-color: rgba(107, 114, 128, 0.2);
+        }
+        .feature-card:hover {
+            transform: translateY(-8px) scale(1.05) rotate(2deg);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+            border-color: #60a5fa;
+            animation: glow 1.5s infinite alternate;
+        }
+        body.dark-mode .feature-card:hover {
+            border-color: #93c5fd;
+        }
+        @keyframes glow {
+            0% {
+                box-shadow: 0 0 10px rgba(96, 165, 250, 0.3);
+            }
+            100% {
+                box-shadow: 0 0 20px rgba(96, 165, 250, 0.6);
+            }
+        }
+        .feature-card i {
+            font-size: 40px;
+            color: #3b82f6;
+            margin-bottom: 15px;
+            transition: color 0.3s;
+        }
+        body.dark-mode .feature-card i {
+            color: #60a5fa;
+        }
+        .feature-card h3 {
+            font-size: 20px;
+            color: #3b82f6;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+        body.dark-mode .feature-card h3 {
+            color: #60a5fa;
+        }
+        .feature-card p {
+            font-size: 14px;
+            color: #4b5563;
+            transition: color 0.3s;
+        }
+        body.dark-mode .feature-card p {
+            color: #d1d5db;
+        }
+        /* Payment Methods Section */
+        .payment-methods {
+            padding: 50px 20px;
+            text-align: center;
+            background-color: #ffffff;
+            animation: fadeIn 0.8s ease-in;
+            transition: background-color 0.3s;
+        }
+        body.dark-mode .payment-methods {
+            background-color: #374151;
+        }
+        .payment-methods h2 {
+            font-size: 30px;
+            color: #3b82f6;
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            transition: color 0.3s;
+        }
+        body.dark-mode .payment-methods h2 {
+            color: #60a5fa;
+        }
+        .payment-methods h2 i {
+            font-size: 24px;
+        }
+        .payment-methods .payment-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .payment-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s;
+            animation: fadeIn 0.5s ease-in;
+            position: relative;
+            overflow: hidden;
+        }
+        body.dark-mode .payment-card {
+            background: rgba(55, 65, 81, 0.2);
+            border-color: rgba(107, 114, 128, 0.2);
+        }
+        .payment-card:hover {
+            transform: translateY(-8px) scale(1.05) rotate(2deg);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+            border-color: #60a5fa;
+            animation: glow 1.5s infinite alternate;
+        }
+        body.dark-mode .payment-card:hover {
+            border-color: #93c5fd;
+        }
+        .payment-card img {
+            width: 100%;
+            height: 50px;
+            object-fit: contain;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+        .payment-card:hover img {
+            transform: scale(1.1);
+        }
+        .payment-card p {
+            font-size: 14px;
+            color: #4b5563;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        body.dark-mode .payment-card p {
+            color: #d1d5db;
+        }
+        /* Footer */
+        .footer {
+            background: linear-gradient(90deg, #3b82f6, #60a5fa);
+            color: white;
+            text-align: center;
+            padding: 25px;
+            font-size: 14px;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideInRight {
+            from { transform: translateX(50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes popIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        @keyframes popOut {
+            from { transform: scale(1); opacity: 1; }
+            to { transform: scale(0.8); opacity: 0; }
+        }
+        @keyframes spin {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        /* Responsive */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 15px 20px;
+            }
+            .navbar .contact, .navbar .dark-mode-toggle {
+                display: none;
+            }
+            .navbar .hamburger {
+                display: block;
+            }
+            .navbar .contact.active, .navbar .dark-mode-toggle.active {
+                display: flex;
+                position: absolute;
+                top: 60px;
+                right: 20px;
+                background-color: #2563eb;
+            }
+            .navbar .dark-mode-toggle.active {
+                top: 110px;
+            }
+            .navbar .brand-logo {
+                width: 32px;
+                height: 32px;
+            }
+            .navbar .brand {
+                font-size: 24px;
+            }
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 40px 20px;
+            }
+            .hero-text h1 {
+                font-size: 32px;
+            }
+            .hero-text p {
+                font-size: 16px;
+            }
+            .hero-image img {
+                max-width: 80%;
+            }
+            .features .feature-container {
+                grid-template-columns: 1fr;
+            }
+            .payment-methods .payment-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 480px) {
+            .hero-text h1 {
+                font-size: 28px;
+            }
+            .hero-text p {
+                font-size: 14px;
+            }
+            .hero-text .cta {
+                padding: 12px 24px;
+                font-size: 14px;
+            }
+            .features h2, .payment-methods h2 {
+                font-size: 24px;
+            }
+            .feature-card, .payment-card {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="index.html" class="brand">
+            <img src="img/logo.png" alt="SevenPremium Logo" class="brand-logo">
+            SevenPremium
+        </a>
+        <div class="nav-right">
+            <a href="https://wa.me/6282347320955" class="contact"><i class="fab fa-whatsapp"></i> Contact</a>
+            <div class="dark-mode-toggle" onclick="toggleDarkMode()">
+                <i class="fas fa-moon"></i> Dark Mode
+            </div>
+        </div>
+        <i class="fas fa-bars hamburger" onclick="toggleMenu()"></i>
+    </nav>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Solusi Premium untuk Kebutuhan Digital Anda!</h1>
+            <p>Dapatkan akses ke aplikasi premium seperti Alight Motion, Spotify, Canva, dan lainnya dengan harga terbaik dan proses instan.</p>
+            <a href="product.html" class="cta"><i class="fas fa-shopping-cart"></i> Mulai Berbelanja</a>
+        </div>
+        <div class="hero-image">
+            <img src="https://img.freepik.com/free-vector/shopping-concept-illustration_114360-1484.jpg" alt="Karakter Berbelanja">
+        </div>
+    </section>
+    <!-- Features Section -->
+    <section class="features">
+        <h2><i class="fas fa-gem"></i> Mengapa Memilih Kami?</h2>
+        <div class="feature-container">
+            <div class="feature-card">
+                <i class="fas fa-rocket"></i>
+                <h3>Proses Instan</h3>
+                <p>Pesanan Anda diproses dengan cepat, sebagian besar instan!</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Terpercaya</h3>
+                <p>Kami menjamin keamanan dan kepuasan pelanggan.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-wallet"></i>
+                <h3>Harga Terjangkau</h3>
+                <p>Nikmati layanan premium dengan harga bersaing.</p>
+            </div>
+        </div>
+    </section>
+    <!-- Payment Methods Section -->
+    <section class="payment-methods">
+        <h2><i class="fas fa-credit-card"></i> Metode Pembayaran</h2>
+        <div class="payment-container">
+            <div class="payment-card">
+                <img src="img/qris.jpg" alt="QRIS">
+                <p>QRIS</p>
+            </div>
+            <div class="payment-card">
+                <img src="img/dana.jpg" alt="DANA">
+                <p>DANA</p>
+            </div>
+            <div class="payment-card">
+                <img src="img/gopay.jpg" alt="GoPay">
+                <p>GoPay</p>
+            </div>
+            <div class="payment-card">
+                <img src="img/ovo.jpg" alt="OVO">
+                <p>OVO</p>
+            </div>
+            <div class="payment-card">
+                <img src="img/bsi.jpg" alt="BSI">
+                <p>BSI</p>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="footer">
+        <p><i class="fas fa-copyright"></i> 2025 SevenPremium. All Rights Reserved.</p>
+    </footer>
+    <script>
+        function toggleMenu() {
+            const contact = document.querySelector('.navbar .contact');
+            const darkModeToggle = document.querySelector('.navbar .dark-mode-toggle');
+            contact.classList.toggle('active');
+            darkModeToggle.classList.toggle('active');
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const darkModeToggle = document.querySelector('.dark-mode-toggle');
+            if (document.body.classList.contains('dark-mode')) {
+                darkModeToggle.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
+            } else {
+                darkModeToggle.innerHTML = '<i class="fas fa-moon"></i> Dark Mode';
+            }
+            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+        }
+
+        // Load dark mode preference from localStorage
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.body.classList.add('dark-mode');
+            document.querySelector('.dark-mode-toggle').innerHTML = '<i class="fas fa-sun"></i> Light Mode';
+        }
+    </script>
+</body>
+</html>

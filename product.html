@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produk - ZalPremium</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            background-color: #f9fafb;
+            color: #1f2937;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        body.dark-mode {
+            background-color: #1f2937;
+            color: #e5e7eb;
+        }
+        /* Navbar */
+        .navbar {
+            background: rgba(59, 130, 246, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .navbar .brand {
+            color: white;
+            font-size: 28px;
+            font-weight: 700;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .navbar .brand-logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            object-fit: contain;
+        }
+        .navbar .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .navbar .contact {
+            color: white;
+            font-size: 16px;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            background-color: #2563eb;
+            transition: background-color 0.3s, transform 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .navbar .contact:hover {
+            background-color: #1e40af;
+            transform: scale(1.05);
+        }
+        .navbar .dark-mode-toggle {
+            color: white;
+            font-size: 16px;
+            padding: 10px;
+            border-radius: 25px;
+            background-color: #2563eb;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .navbar .dark-mode-toggle:hover {
+            background-color: #1e40af;
+            transform: scale(1.05);
+        }
+        .navbar .hamburger {
+            display: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        /* Banner Section */
+        .banner {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            margin: 20px auto;
+            overflow: hidden;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s;
+        }
+        body.dark-mode .banner {
+            background-color: #374151;
+        }
+        .banner .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .banner .slide {
+            flex: 0 0 100%;
+            width: 100%;
+        }
+        .banner img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .banner .prev, .banner .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: none;
+            padding: 12px;
+            cursor: pointer;
+            font-size: 20px;
+            border-radius: 50%;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .banner .prev:hover, .banner .next:hover {
+            background-color: rgba(0, 0, 0, 0.9);
+            transform: translateY(-50%) scale(1.1);
+        }
+        .banner .prev {
+            left: 15px;
+        }
+        .banner .next {
+            right: 15px;
+        }
+        /* Search Bar */
+        .search-bar {
+            padding: 20px;
+            text-align: center;
+            background-color: #ffffff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            max-width: 1200px;
+            border-radius: 10px;
+            transition: background-color 0.3s;
+        }
+        body.dark-mode .search-bar {
+            background-color: #374151;
+        }
+        .search-bar .search-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        .search-bar input {
+            padding: 12px 15px;
+            width: 100%;
+            border: 1px solid #d1d5db;
+            border-radius: 25px;
+            font-size: 16px;
+            transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s, color 0.3s;
+        }
+        body.dark-mode .search-bar input {
+            background-color: #4b5563;
+            color: #e5e7eb;
+            border-color: #6b7280;
+        }
+        .search-bar input:focus {
+            border-color: #60a5fa;
+            box-shadow: 0 0 8px rgba(96, 165, 250, 0.3);
+            outline: none;
+        }
+        .search-bar i {
+            color: #3b82f6;
+            font-size: 18px;
+        }
+        body.dark-mode .search-bar i {
+            color: #60a5fa;
+        }
+        /* Products Section */
+        .products {
+            padding: 50px 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .product-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s, border-color 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        body.dark-mode .product-card {
+            background: rgba(55, 65, 81, 0.2);
+            border-color: rgba(107, 114, 128, 0.2);
+        }
+        .product-card:hover {
+            transform: translateY(-8px) scale(1.05) rotate(2deg);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+            border-color: #60a5fa;
+            animation: glow 1.5s infinite alternate;
+        }
+        body.dark-mode .product-card:hover {
+            border-color: #93c5fd;
+        }
+        @keyframes glow {
+            0% {
+                box-shadow: 0 0 10px rgba(96, 165, 250, 0.3);
+            }
+            100% {
+                box-shadow: 0 0 20px rgba(96, 165, 250, 0.6);
+            }
+        }
+        .product-card img {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 12px;
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+        .product-card:hover img {
+            transform: scale(1.1);
+        }
+        .product-card h3 {
+            font-size: 20px;
+            color: #3b82f6;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+        body.dark-mode .product-card h3 {
+            color: #60a5fa;
+        }
+        .product-card p {
+            font-size: 14px;
+            color: #4b5563;
+            margin-bottom: 8px;
+            transition: color 0.3s;
+        }
+        body.dark-mode .product-card p {
+            color: #d1d5db;
+        }
+        .product-card .availability, .product-card .unavailable {
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .product-card .availability {
+            color: #16a34a;
+        }
+        body.dark-mode .product-card .availability {
+            color: #22c55e;
+        }
+        .product-card .unavailable {
+            color: #dc2626;
+        }
+        body.dark-mode .product-card .unavailable {
+            color: #ef4444;
+        }
+        /* Hot News Section */
+        .hot-news {
+            padding: 50px 20px;
+            background-color: #e5e7eb;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+        body.dark-mode .hot-news {
+            background-color: #374151;
+        }
+        .hot-news h2 {
+            font-size: 30px;
+            color: #3b82f6;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            transition: color 0.3s;
+        }
+        body.dark-mode .hot-news h2 {
+            color: #60a5fa;
+        }
+        .hot-news h2 i {
+            font-size: 24px;
+        }
+        .news-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .news-card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: left;
+            transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+        }
+        body.dark-mode .news-card {
+            background-color: #4b5563;
+        }
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+        .news-card h3 {
+            font-size: 18px;
+            color: #3b82f6;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.3s;
+        }
+        body.dark-mode .news-card h3 {
+            color: #60a5fa;
+        }
+        .news-card p {
+            font-size: 14px;
+            color: #4b5563;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+        body.dark-mode .news-card p {
+            color: #d1d5db;
+        }
+        .news-card .date {
+            font-size: 12px;
+            color: #6b7280;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.3s;
+        }
+        body.dark-mode .news-card .date {
+            color: #9ca3af;
+        }
+        /* Pop-up */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+        .popup-content {
+            background-color: #ffffff;
+            padding: 25px;
+            border-radius: 16px;
+            width: 90%;
+            max-width: 550px;
+            position: relative;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+            animation: popIn 0.4s ease-out;
+            transition: background-color 0.3s;
+        }
+        body.dark-mode .popup-content {
+            background-color: #374151;
+        }
+        .popup-content h2 {
+            font-size: 26px;
+            color: #3b82f6;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: color 0.3s;
+        }
+        body.dark-mode .popup-content h2 {
+            color: #60a5fa;
+        }
+        .popup-content label {
+            font-size: 14px;
+            color: #4b5563;
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        body.dark-mode .popup-content label {
+            color: #d1d5db;
+        }
+        .popup-content input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s, color 0.3s;
+        }
+        body.dark-mode .popup-content input {
+            background-color: #4b5563;
+            color: #e5e7eb;
+            border-color: #6b7280;
+        }
+        .popup-content input:focus {
+            border-color: #60a5fa;
+            box-shadow: 0 0 8px rgba(96, 165, 250, 0.3);
+            outline: none;
+        }
+        .popup-content .variant-options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        .variant-options .variant {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px;
+            border: 2px solid #d1d5db;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: border-color 0.3s, background-color 0.3s, transform 0.2s;
+        }
+        body.dark-mode .variant-options .variant {
+            border-color: #6b7280;
+        }
+        .variant-options .variant:hover {
+            background-color: #f3f4f6;
+            transform: translateX(5px);
+        }
+        body.dark-mode .variant-options .variant:hover {
+            background-color: #4b5563;
+        }
+        .variant-options .variant.selected {
+            border-color: #60a5fa;
+            background-color: #e6f3ff;
+            transform: translateX(5px);
+        }
+        body.dark-mode .variant-options .variant.selected {
+            background-color: #1e40af;
+        }
+        .variant-options .variant i {
+            color: #3b82f6;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+        body.dark-mode .variant-options .variant i {
+            color: #60a5fa;
+        }
+        .variant-options .variant-price {
+            margin-left: auto;
+            font-weight: 600;
+            color: #2563eb;
+            transition: color 0.3s;
+        }
+        body.dark-mode .variant-options .variant-price {
+            color: #60a5fa;
+        }
+        .popup-content .payment-methods {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+        .payment-methods .method {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: border-color 0.3s, background-color 0.3s, transform 0.2s;
+        }
+        .payment-methods .method:hover {
+            background-color: #f3f4f6;
+            transform: scale(1.02);
+        }
+        body.dark-mode .payment-methods .method:hover {
+            background-color: #4b5563;
+        }
+        .payment-methods .method.selected {
+            border-color: #60a5fa;
+            background-color: #e6f3ff;
+        }
+        body.dark-mode .payment-methods .method.selected {
+            background-color: #1e40af;
+        }
+        .payment-methods .method img {
+            height: 32px;
+        }
+        .popup-content .buy-now {
+            background: linear-gradient(90deg, #60a5fa, #3b82f6);
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 25px;
+            width: 100%;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .popup-content .buy-now:hover {
+            background: linear-gradient(90deg, #2563eb, #1e40af);
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+        .popup-content .buy-now.loading {
+            pointer-events: none;
+            opacity: 0.8;
+        }
+        .popup-content .buy-now .loading-spinner {
+            display: none;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 24px;
+            height: 24px;
+            border: 3px solid #ffffff;
+            border-top: 3px solid transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        .popup-content .buy-now.loading .loading-spinner {
+            display: block;
+        }
+        .popup-content .buy-now.loading span {
+            opacity: 0;
+        }
+        .popup-content .close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #4b5563;
+            transition: color 0.3s, transform 0.3s;
+        }
+        body.dark-mode .popup-content .close {
+            color: #d1d5db;
+        }
+        .popup-content .close:hover {
+            color: #2563eb;
+            transform: rotate(90deg);
+        }
+        body.dark-mode .popup-content .close:hover {
+            color: #60a5fa;
+        }
+        /* Error Message */
+        .error {
+            color: #dc2626;
+            font-size: 14px;
+            margin-bottom: 10px;
+            display: none;
+            background-color: #fee2e2;
+            padding: 8px;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+        body.dark-mode .error {
+            background-color: #7f1d1d;
+        }
+        /* Footer */
+        .footer {
+            background: linear-gradient(90deg, #3b82f6, #60a5fa);
+            color: white;
+            text-align: center;
+            padding: 25px;
+            font-size: 14px;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes popIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        @keyframes popOut {
+            from { transform: scale(1); opacity: 1; }
+            to { transform: scale(0.8); opacity: 0; }
+        }
+        @keyframes spin {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        /* Responsive */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 15px 20px;
+            }
+            .navbar .contact, .navbar .dark-mode-toggle {
+                display: none;
+            }
+            .navbar .hamburger {
+                display: block;
+            }
+            .navbar .contact.active, .navbar .dark-mode-toggle.active {
+                display: flex;
+                position: absolute;
+                top: 60px;
+                right: 20px;
+                background-color: #2563eb;
+            }
+            .navbar .dark-mode-toggle.active {
+                top: 110px;
+            }
+            .navbar .brand-logo {
+                width: 32px;
+                height: 32px;
+            }
+            .navbar .brand {
+                font-size: 24px;
+            }
+            .banner img {
+                height: 200px;
+            }
+            .search-bar .search-container {
+                max-width: 100%;
+            }
+            .products {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .news-container {
+                grid-template-columns: 1fr;
+            }
+            .popup-content {
+                width: 95%;
+                padding: 20px;
+            }
+            .payment-methods {
+                flex-direction: column;
+            }
+            .payment-methods .method {
+                width: 100%;
+                justify-content: space-between;
+            }
+        }
+        @media (max-width: 480px) {
+            .popup-content {
+                padding: 15px;
+            }
+            .popup-content h2 {
+                font-size: 20px;
+            }
+            .popup-content input {
+                padding: 10px;
+            }
+            .variant-options .variant {
+                padding: 10px;
+            }
+            .payment-methods .method {
+                padding: 10px;
+            }
+            .popup-content .buy-now {
+                padding: 12px;
+                font-size: 14px;
+            }
+            .product-card img {
+                width: 80px;
+                height: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="index.html" class="brand">
+            <img src="img/logo.png" alt="SevenPremium Logo" class="brand-logo">
+            ZalPremium
+        </a>
+        <div class="nav-right">
+            <a href="https://wa.me/6282347320955" class="contact"><i class="fab fa-whatsapp"></i> Contact</a>
+            <div class="dark-mode-toggle" onclick="toggleDarkMode()">
+                <i class="fas fa-moon"></i> Dark Mode
+            </div>
+        </div>
+        <i class="fas fa-bars hamburger" onclick="toggleMenu()"></i>
+    </nav>
+    <!-- Banner Section -->
+    <section class="banner">
+        <div class="slides">
+            <div class="slide">
+                <img src="https://via.placeholder.com/1200x300?text=Banner+1" alt="Banner 1">
+            </div>
+            <div class="slide">
+                <img src="https://via.placeholder.com/1200x300?text=Banner+2" alt="Banner 2">
+            </div>
+            <div class="slide">
+                <img src="https://via.placeholder.com/1200x300?text=Banner+3" alt="Banner 3">
+            </div>
+        </div>
+        <button class="prev" onclick="moveSlide(-1)"><i class="fas fa-chevron-left"></i></button>
+        <button class="next" onclick="moveSlide(1)"><i class="fas fa-chevron-right"></i></button>
+    </section>
+    <!-- Search Bar -->
+    <section class="search-bar">
+        <div class="search-container">
+            <i class="fas fa-search"></i>
+            <input type="text" id="searchInput" placeholder="Cari produk..." onkeyup="searchProducts()">
+        </div>
+    </section>
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="product-card" onclick="openPopup('Alight Motion Premium', 'img/Alight Motion.jpg', 10000, 'Instan', true, [
+            { name: 'Alight Motion Sharing 1 Bulan', price: 2000 },
+            { name: 'Alight Motion Private 1 Tahun', price: 10000 }
+        ])">
+            <img src="img/Alight Motion.jpg" alt="Alight Motion Premium">
+            <h3><i class="fas fa-video"></i> Alight Motion Premium</h3>
+            <p>Harga: Rp 2,000</p>
+            <p>Proses: Instan</p>
+            <p class="availability"><i class="fas fa-check-circle"></i> Tersedia</p>
+        </div>
+        <div class="product-card" onclick="openPopup('Spotify Premium', 'img/spo.jpg', 50000, 'Instan', true, [
+            { name: 'Spotify Sharing 1 Bulan', price: 15000 },
+            { name: 'Spotify Private 3 Bulan', price: 25000 }
+        ])">
+            <img src="img/spo.jpg" alt="Spotify Premium">
+            <h3><i class="fas fa-music"></i> Spotify Premium</h3>
+            <p>Harga: Rp 15,000</p>
+            <p>Proses: Instan</p>
+            <p class="availability"><i class="fas fa-check-circle"></i> Tersedia</p>
+        </div>
+        <div class="product-card" onclick="openPopup('Netflix Premium', 'img/net.jpg', 120000, 'Manual', true, [
+            { name: 'Netflix Sharing 1 Profil 2 User', price: 20000 },
+            { name: 'Netflix Private 1 Profil 1 User', price: 30000 }
+        ])">
+            <img src="img/net.jpg" alt="Netflix Premium">
+            <h3><i class="fas fa-tv"></i> Netflix Premium</h3>
+            <p>Harga: Rp 20,000</p>
+            <p>Proses: Instan</p>
+            <p class="availability"><i class="fas fa-check-circle"></i> Tersedia</p>
+        </div>
+        <div class="product-card" onclick="openPopup('Canva Pro', 'img/cnva.jpg', 80000, 'Instan', true, [
+            { name: 'Canva Sharing 1 Bulan', price: 5000 },
+            { name: 'Canva Private 1 Bulan', price: 10000 }
+        ])">
+            <img src="img/cnva.jpg" alt="Canva Pro">
+            <h3><i class="fas fa-palette"></i> Canva Pro</h3>
+            <p>Harga: Rp 5,000</p>
+            <p>Proses: Instan</p>
+            <p class="availability"><i class="fas fa-check-circle"></i> Tersedia</p>
+        </div>
+        <div class="product-card" onclick="openPopup('Youtube', 'img/yt.jpg', 100000, 'Manual', true, [
+            { name: 'Akun Buyer 1 Bulan', price: 10000 },
+            { name: 'Akun Admin 1 Bulan', price: 25000 },
+            { name: 'Akun Admin 3 Bulan', price: 35000 },
+            { name: 'Famhead 1 Bulan', price: 50000 }
+        ])">
+            <img src="img/yt.jpg" alt="Youtube">
+            <h3><i class="fas fa-play"></i> Youtube</h3>
+            <p>Harga: Rp 10,000</p>
+            <p>Proses: Instan</p>
+            <p class="availability"><i class="fas fa-check-circle"></i> Tersedia</p>
+        </div>
+        <div class="product-card" onclick="openPopup('Apple Music', 'img/app.jpg', 110000, 'Instan', true, [
+            { name: 'Android 1 Bulan', price: 5000 },
+            { name: 'IOS 1 Bulan', price: 30000 },
+            { name: 'Famhead 1 Bulan', price: 50000 }
+        ])">
+            <img src="img/app.jpg" alt="Apple Music">
+            <h3><i class="fas fa-music"></i> Apple Music</h3>
+            <p>Harga: Rp 5,000</p>
+            <p>Proses: Instan</p>
+            <p class="availability"><i class="fas fa-check-circle"></i> Tersedia</p>
+        </div>
+        <div class="product-card" onclick="openPopup('Disney HotStar', 'img/ds.jpg', 150000, 'Instan', true, [
+            { name: '2 User 1 Profile', price: 20000 },
+            { name: '1 User 1 Profile', price: 40000 }
+        ])">
+            <img src="img/ds.jpg" alt="Disney HotStar">
+            <h3><i class="fas fa-tv"></i> Disney HotStar</h3>
+            <p>Harga: Rp 20,000</p>
+            <p>Proses: Instan</p>
+            <p class="availability"><i class="fas fa-check-circle"></i> Tersedia</p>
+        </div>
+        <div class="product-card" onclick="openPopup('Capcut', 'img/cp.jpg', 200000, 'Instan', true, [
+            { name: 'Capcut Sharing 7 Hari', price: 7500 },
+            { name: 'Capcut Sharing 1 Bulan', price: 15000 }
+        ])">
+            <img src="img/cp.jpg" alt="Capcut">
+            <h3><i class="fas fa-video"></i> Capcut</h3>
+            <p>Harga: Rp 7,500</p>
+            <p>Proses: Instan</p>
+            <p class="availability"><i class="fas fa-check-circle"></i> Tersedia</p>
+        </div>
+        <div class="product-card" onclick="openPopup('Chat GPT', 'img/gpt.jpg', 70000, 'Instan', true, [
+            { name: 'Chat GPT Sharing 7 Hari', price: 20000 },
+            { name: 'Chat GPT Sharing 1 Bulan', price: 35000 }
+        ])">
+            <img src="img/gpt.jpg" alt="Chat GPT">
+            <h3><i class="fas fa-robot"></i> Chat GPT</h3>
+            <p>Harga: Rp 20,000</p>
+            <p>Proses: Instan</p>
+            <p class="availability"><i class="fas fa-check-circle"></i> Tersedia</p>
+        </div>
+        <div class="product-card" onclick="openPopup('Zoom Pro', 'img/zoom.jpg', 90000, 'Instan', true, [
+            { name: 'Zoom Sharing 1 Hari', price: 5000 },
+            { name: 'Zoom Sharing 1 Bulan', price: 15000 },
+            { name: 'Zoom Sharing 2 Minggu', price: 10000 }
+        ])">
+            <img src="img/zoom.jpg" alt="Zoom Pro">
+            <h3><i class="fas fa-video"></i> Zoom Pro</h3>
+            <p>Harga: Rp 5,000</p>
+            <p>Proses: Instan</p>
+            <p class="availability"><i class="fas fa-check-circle"></i> Tersedia</p>
+        </div>
+    </section>
+    <!-- Hot News Section -->
+    <section class="hot-news">
+        <h2><i class="fas fa-fire"></i> Hot News</h2>
+        <div class="news-container">
+            <div class="news-card">
+                <h3><i class="fas fa-tag"></i> Promo Akhir Tahun!</h3>
+                <p>Dapatkan diskon hingga 20% untuk semua produk premium. Jangan lewatkan kesempatan ini!</p>
+                <p class="date"><i class="fas fa-calendar-day"></i> 1 Mei 2025</p>
+            </div>
+            <div class="news-card">
+                <h3><i class="fas fa-video"></i> Alight Motion Premium Baru</h3>
+                <p>Varian 1 Tahun kini tersedia dengan harga spesial Rp 10,000. Segera pesan!</p>
+                <p class="date"><i class="fas fa-calendar-day"></i> 28 April 2025</p>
+            </div>
+            <div class="news-card">
+                <h3><i class="fas fa-wallet"></i> Pembayaran Lebih Mudah</h3>
+                <p>Kini kami mendukung pembayaran via QRIS, DANA, GoPay, dan BSI untuk kenyamanan Anda.</p>
+                <p class="date"><i class="fas fa-calendar-day"></i> 25 April 2025</p>
+            </div>
+        </div>
+    </section>
+    <!-- Pop-up -->
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup()"><i class="fas fa-times"></i></span>
+            <h2 id="popupTitle"><i class="fas fa-shopping-cart"></i></h2>
+            <p class="error" id="formError">Harap lengkapi semua field!</p>
+            <form id="buyForm">
+                <input type="hidden" id="productName" name="productName">
+                <input type="hidden" id="productPrice" name="productPrice">
+                <label>Pilih Varian:</label>
+                <div class="variant-options" id="variantOptions"></div>
+                <input type="hidden" id="variant" name="variant" required>
+                <label for="quantity">Jumlah:</label>
+                <input type="number" id="quantity" name="quantity" min="1" value="1" required>
+                <label for="payment">Metode Pembayaran:</label>
+                <div class="payment-methods">
+                    <div class="method" onclick="selectPayment('QRIS')">
+                        <img src="img/qris.jpg" alt="QRIS">
+                        <span>QRIS</span>
+                    </div>
+                    <div class="method" onclick="selectPayment('DANA')">
+                        <img src="img/dana.jpg" alt="DANA">
+                        <span>DANA</span>
+                    </div>
+                    <div class="method" onclick="selectPayment('GoPay')">
+                        <img src="img/gopay.jpg" alt="GoPay">
+                        <span>GoPay</span>
+                    </div>
+                    <div class="method" onclick="selectPayment('BSI')">
+                        <img src="img/bsi.jpg" alt="BSI">
+                        <span>BSI</span>
+                    </div>
+                </div>
+                <input type="hidden" id="payment" name="payment" required>
+                <label for="email">Email Penerima:</label>
+                <input type="email" id="email" name="email" required>
+                <p>Total Harga: Rp <span id="popupPrice">0</span></p>
+                <button type="submit" class="buy-now"><span><i class="fas fa-check"></i> Beli Sekarang</span><div class="loading-spinner"></div></button>
+            </form>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="footer">
+        <p><i class="fas fa-copyright"></i> 2025 SevenPremium. All Rights Reserved.</p>
+    </footer>
+    <script>
+        let selectedPayment = '';
+        let selectedVariant = '';
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.banner .slide');
+        const totalSlides = slides.length;
+        let variantPrices = [];
+
+        function toggleMenu() {
+            const contact = document.querySelector('.navbar .contact');
+            const darkModeToggle = document.querySelector('.navbar .dark-mode-toggle');
+            contact.classList.toggle('active');
+            darkModeToggle.classList.toggle('active');
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const darkModeToggle = document.querySelector('.dark-mode-toggle');
+            if (document.body.classList.contains('dark-mode')) {
+                darkModeToggle.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
+            } else {
+                darkModeToggle.innerHTML = '<i class="fas fa-moon"></i> Dark Mode';
+            }
+            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+        }
+
+        // Load dark mode preference from localStorage
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.body.classList.add('dark-mode');
+            document.querySelector('.dark-mode-toggle').innerHTML = '<i class="fas fa-sun"></i> Light Mode';
+        }
+
+        function searchProducts() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const productCards = document.querySelectorAll('.product-card');
+            productCards.forEach(card => {
+                const name = card.querySelector('h3').textContent.toLowerCase();
+                card.style.display = name.includes(input) ? '' : 'none';
+            });
+        }
+
+        function updateTotalPrice() {
+            const quantity = parseInt(document.getElementById('quantity').value) || 1;
+            const price = parseInt(document.getElementById('productPrice').value) || 0;
+            const totalPrice = price * quantity;
+            document.getElementById('popupPrice').textContent = totalPrice.toLocaleString('id-ID');
+        }
+
+        function openPopup(name, logo, price, process, available, variants) {
+            if (!available) return;
+            document.getElementById('popupTitle').innerHTML = `<i class="fas fa-shopping-cart"></i> ${name}`;
+            document.getElementById('productName').value = name;
+            document.getElementById('productPrice').value = price;
+            variantPrices = variants;
+            const variantOptions = document.getElementById('variantOptions');
+            variantOptions.innerHTML = '';
+            variants.forEach(variant => {
+                const div = document.createElement('div');
+                div.className = 'variant';
+                div.innerHTML = `<i class="fas fa-calendar-check"></i> ${variant.name}<span class="variant-price">Rp ${variant.price.toLocaleString('id-ID')}</span>`;
+                div.onclick = () => selectVariant(variant.name, variant.price);
+                variantOptions.appendChild(div);
+            });
+            document.getElementById('popup').style.display = 'flex';
+            selectedPayment = '';
+            selectedVariant = '';
+            document.getElementById('variant').value = '';
+            document.getElementById('payment').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('quantity').value = '1';
+            document.getElementById('productPrice').value = variants[0].price;
+            document.getElementById('formError').style.display = 'none';
+            document.querySelectorAll('.variant-options .variant').forEach(v => v.classList.remove('selected'));
+            document.querySelectorAll('.payment-methods .method').forEach(method => method.classList.remove('selected'));
+            updateTotalPrice();
+        }
+
+        function closePopup() {
+            const popup = document.getElementById('popup');
+            const popupContent = document.querySelector('.popup-content');
+            popupContent.style.animation = 'popOut 0.3s ease-in';
+            setTimeout(() => {
+                popup.style.display = 'none';
+                popupContent.style.animation = 'popIn 0.4s ease-out';
+            }, 300);
+        }
+
+        function selectVariant(variant, price) {
+            selectedVariant = variant;
+            document.getElementById('variant').value = variant;
+            document.getElementById('productPrice').value = price;
+            document.querySelectorAll('.variant-options .variant').forEach(v => {
+                v.classList.toggle('selected', v.textContent.includes(variant));
+            });
+            document.getElementById('formError').style.display = 'none';
+            updateTotalPrice();
+        }
+
+        function selectPayment(method) {
+            selectedPayment = method;
+            document.getElementById('payment').value = method;
+            document.querySelectorAll('.payment-methods .method').forEach(m => {
+                m.classList.toggle('selected', m.querySelector('span').textContent === method);
+            });
+            document.getElementById('formError').style.display = 'none';
+        }
+
+        function moveSlide(direction) {
+            currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+            const slidesContainer = document.querySelector('.banner .slides');
+            slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        function autoSlide() {
+            moveSlide(1);
+        }
+
+        // Handle form submission
+        document.getElementById('buyForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const productName = document.getElementById('productName').value;
+            const productPrice = parseInt(document.getElementById('productPrice').value);
+            const variant = document.getElementById('variant').value;
+            const quantity = parseInt(document.getElementById('quantity').value);
+            const payment = document.getElementById('payment').value;
+            const email = document.getElementById('email').value;
+
+            const errorElement = document.getElementById('formError');
+            if (!productName || productPrice <= 0 || !variant || quantity < 1 || !payment || !email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                errorElement.textContent = 'Harap lengkapi semua field dengan benar!';
+                errorElement.style.display = 'block';
+                return;
+            }
+
+            const button = document.querySelector('.buy-now');
+            button.classList.add('loading');
+
+            setTimeout(() => {
+                const totalPrice = productPrice * quantity;
+                const message = `Halo kak!\n` +
+                               `Saya ingin memesan:\n` +
+                               `Produk: ${productName}\n` +
+                               `Varian: ${variant}\n` +
+                               `Jumlah: ${quantity}\n` +
+                               `Metode Pembayaran: ${payment}\n` +
+                               `Total Harga: Rp ${totalPrice.toLocaleString('id-ID')}\n` +
+                               `Email: ${email}\n` +
+                               `Mohon konfirmasi ketersediaan. Terima kasih!`;
+
+                const encodedMessage = encodeURIComponent(message);
+                const whatsappNumber = '6281234567890';
+                const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+                window.location.href = whatsappUrl;
+                button.classList.remove('loading');
+                closePopup();
+            }, 3000);
+        });
+
+        document.getElementById('quantity').addEventListener('input', updateTotalPrice);
+
+        setInterval(autoSlide, 5000);
+    </script>
+</body>
+</html>
