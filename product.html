@@ -106,6 +106,7 @@
             border-radius: 10px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             transition: background-color 0.3s;
+            aspect-ratio: 16 / 9; /* Enforce 16:9 aspect ratio */
         }
         body.dark-mode .banner {
             background-color: #374151;
@@ -113,14 +114,17 @@
         .banner .slides {
             display: flex;
             transition: transform 0.5s ease-in-out;
+            width: 100%;
+            height: 100%;
         }
         .banner .slide {
             flex: 0 0 100%;
             width: 100%;
+            height: 100%;
         }
         .banner img {
             width: 100%;
-            height: 300px;
+            height: 100%;
             object-fit: cover;
             border-radius: 10px;
         }
@@ -128,18 +132,19 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.6);
+            background-color: transparent; /* Transparent background */
             color: white;
             border: none;
             padding: 12px;
             cursor: pointer;
             font-size: 20px;
             border-radius: 50%;
-            transition: background-color 0.3s, transform 0.3s;
+            transition: background-color 0.3s, transform 0.3s, color 0.3s;
         }
         .banner .prev:hover, .banner .next:hover {
-            background-color: rgba(0, 0, 0, 0.9);
+            background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent on hover */
             transform: translateY(-50%) scale(1.1);
+            color: #60a5fa; /* Blue hover color */
         }
         .banner .prev {
             left: 15px;
@@ -647,8 +652,8 @@
             .navbar .brand {
                 font-size: 24px;
             }
-            .banner img {
-                height: 200px;
+            .banner {
+                aspect-ratio: 16 / 9; /* Maintain 16:9 on smaller screens */
             }
             .search-bar .search-container {
                 max-width: 100%;
@@ -717,7 +722,7 @@
     <section class="banner">
         <div class="slides">
             <div class="slide">
-                <img src="https://via.placeholder.com/1200x300?text=Banner+1" alt="Banner 1">
+                <img src="img/Banner1.png" alt="Banner 1">
             </div>
             <div class="slide">
                 <img src="https://via.placeholder.com/1200x300?text=Banner+2" alt="Banner 2">
@@ -1060,7 +1065,7 @@
                                `Mohon konfirmasi ketersediaan. Terima kasih!`;
 
                 const encodedMessage = encodeURIComponent(message);
-                const whatsappNumber = '6281234567890';
+                const whatsappNumber = '6282347320955';
                 const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
 
                 window.location.href = whatsappUrl;
